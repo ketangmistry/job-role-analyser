@@ -1,3 +1,9 @@
+# This project only
+job-role-requirements.txt
+my-skills.txt
+keywords.txt
+.vscode
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
