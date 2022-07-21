@@ -6,14 +6,24 @@ def get_first_line(file: FileIO):
     return file.read().splitlines()[0]
 
 def get_keywords_and_skills_from_line(line: str, keywords: list, skills: list) -> dict:
-    w = line.lower().replace('/', ' ').replace('(', ' ').replace(')', ' ').split(' ')
+    w = line.lower().replace('/', ' ').replace('(', ' ').replace(')', ' ').replace(',', '').split(' ')
     m = dict()
 
     if keywords is not None or skills is not None:
         for k in keywords:
+
             if k in w:
+                # easy single word skills
                 w = [skill in w for skill in skills]
                 m[k] = [x for x, y in zip(skills, w) if y]
+
+                # suport for multiple word skills 
+                for skill in skills:
+                    if len(skill.split(' ')) >= 2 and skill in line:
+                        if k in m.keys():
+                            m[k].append(skill)
+                        else:
+                            m[k] = [skill]
 
     return m
             
