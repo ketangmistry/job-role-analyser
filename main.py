@@ -1,5 +1,7 @@
+from cmath import sin
 from os import environ
 import sys
+
 import data_generator
         
 def main():
@@ -12,8 +14,14 @@ def main():
         for line in requirements:
             matches = data_generator.get_keywords_and_skills_from_line(line, keywords, skills)
 
-            # TODO: find a way of not losing data as update is overwriting keys
-            single_data_store.update(matches)
+            for k, s in matches.items():
+
+                if len(s) > 0:
+                    if k in single_data_store.keys():
+                        single_data_store[k] + s
+
+                    else:
+                        single_data_store[k] = s
 
         print(single_data_store)
 

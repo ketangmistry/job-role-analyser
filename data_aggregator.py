@@ -1,4 +1,4 @@
-
-
-def get_stats_from_skills_match(skills_match: dict) -> list:
-    return []
+# TODO: fix as test failing
+def get_top_keyword(keyword_skills: dict) -> str:
+    skills_count = [len(v) for k, v in keyword_skills.items()]
+    return 'WIP'
