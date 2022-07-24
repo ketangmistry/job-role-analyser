@@ -3,6 +3,7 @@ job-role-requirements.txt
 my-skills.txt
 keywords.txt
 .vscode
+venv*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
